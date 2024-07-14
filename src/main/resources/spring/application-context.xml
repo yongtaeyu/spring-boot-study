@@ -2,14 +2,18 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:content="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/context
           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="renderer" class="com.example.demo.ch1.StandardOutMessageRenderer">
-        <property name="messageProvider" ref="provider"/>
-    </bean>
-    <bean id="provider" class="com.example.demo.ch1.HelloWorldMessageProvider"/>
+    <content:component-scan base-package="com.example.demo"/>
+
+    <bean id="message" class="java.lang.String"
+        c:_0="bean message"
+    />
 
 </beans>
