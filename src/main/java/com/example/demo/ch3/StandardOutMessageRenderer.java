@@ -1,26 +1,26 @@
-package com.example.demo.ch1;
+package com.example.demo.ch3;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-@Service("renderer")
+// renderer 구현체
 public class StandardOutMessageRenderer implements MessageRenderer{
 
     private MessageProvider messageProvider;
+
     @Override
     public void render() {
         if (messageProvider == null) {
             throw new RuntimeException(
-                    "messageProvider 클래스의 프로퍼티를 설정해야 합니다:"
-                            + StandardOutMessageRenderer.class.getName());
+                    StandardOutMessageRenderer.class.getName()
+                            + " 클래스의 messageProvider 프로퍼티를 설정해야 합니다.");
         }
         System.out.println(messageProvider.getMessage());
     }
+
     @Override
-    @Autowired
     public void setMessageProvider(MessageProvider provider) {
+        System.out.println(" --> StandardOutMessageRenderer: messageProvider 설정");
         this.messageProvider = provider;
     }
+
     @Override
     public MessageProvider getMessageProvider() {
         return this.messageProvider;

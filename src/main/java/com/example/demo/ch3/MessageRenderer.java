@@ -1,4 +1,4 @@
-package com.example.demo.ch1;
+package com.example.demo.ch3;
 
 public interface MessageRenderer {
     void render();
